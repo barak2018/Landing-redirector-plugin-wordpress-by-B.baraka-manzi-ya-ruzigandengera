@@ -2,31 +2,25 @@
 /**
  * Plugin Name: Landing Redirector
  * Description: Redirects homepage visitors to mobile or desktop landing page based on device.
- * Version: 1.0
- * Author: Your Name
+ * Version: 1.1
+ * Author: B.BARAKA MANZI YA RUZIGANDENGERA
  */
 
-// Hook into WordPress init
 add_action('template_redirect', function() {
     if (is_front_page()) {
-        $user_agent = strtolower($_SERVER['HTTP_USER_AGENT']);
-
-        $mobile_devices = array('iphone', 'ipod', 'ipad', 'android', 'blackberry', 'webos', 'windows phone', 'opera mini', 'iemobile', 'mobile');
+        $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? strtolower($_SERVER['HTTP_USER_AGENT']) : '';
 
         $is_mobile = false;
 
-        foreach ($mobile_devices as $device) {
-            if (strpos($user_agent, $device) !== false) {
-                $is_mobile = true;
-                break;
-            }
+        if (preg_match('/iphone|ipod|ipad|android|blackberry|bb10|mini|windows\sce|palm|mobile|tablet|opera mini|iemobile/', $user_agent)) {
+            $is_mobile = true;
         }
 
         if ($is_mobile) {
-            wp_redirect('https://buysellorrent.com/mobile/index.html');
+            wp_redirect('https://buysellorrent.com/mobile/', 301);
             exit;
         } else {
-            wp_redirect('https://buysellorrent.com/BuySellorRent.com/index.html');
+            wp_redirect('https://buysellorrent.com/BuySellorRent.com/index.html', 301);
             exit;
         }
     }
