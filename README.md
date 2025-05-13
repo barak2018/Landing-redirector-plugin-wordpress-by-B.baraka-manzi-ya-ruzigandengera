@@ -1,32 +1,41 @@
-# Landing-redirector-plugin-wordpress-by-B.baraka-manzi-ya-ruzigandengera
-a WordPress mini plugin called Landing Redirector to redirect homepage to other pages depending on devices
-It will:
+# Landing Redirector
 
-Detect mobile/desktop
+**WordPress plugin to redirect homepage visitors to mobile or desktop landing pages based on their device.**
 
-Redirect properly
+---
 
-Load when someone accesses homepage
+## 🚀 Features
 
-You will:
+- Detects if a user is on a mobile or desktop device using the User-Agent string
+- Redirects to different landing pages accordingly
+- Lightweight and fast (no dependencies)
+- Works silently in the background
+- Perfect for split UI (mobile vs. desktop) setups
 
-Upload it like any plugin (Plugins > Add New > Upload)
+---
 
-Activate it
+## 📥 Installation
 
-Done ✅It will work 100% on GoDaddy WordPress hosting.
+1. Download the plugin ZIP or clone the repo:
+    ```bash
+    git clone https://github.com/your-username/landing-redirector.git
+    ```
+2. Upload the plugin folder to your WordPress site's `/wp-content/plugins/` directory
+3. Log in to your WordPress Admin Panel
+4. Go to **Plugins → Installed Plugins**
+5. Activate **Landing Redirector**
 
-📦 Instructions to use it:
-Create a folder on your computer called landing-redirector.
+---
 
-Inside that folder, create a file named landing-redirector.php.
+## ⚙️ Configuration
 
-Paste the code I gave above into that landing-redirector.php file.
+No settings required.
 
-Zip the folder (right-click > "Compress" or "Zip") → you get landing-redirector.zip.
+You can modify the destination URLs directly in the plugin code:
 
-Go to your WordPress Dashboard → Plugins > Add New > Upload Plugin.
+```php
+// Mobile redirect
+wp_redirect('https://buysellorrent.com/mobile/', 301);
 
-Upload your landing-redirector.zip.
-
-Activate the plugin.
+// Desktop redirect
+wp_redirect('https://buysellorrent.com/BuySellorRent.com/index.html', 301);
